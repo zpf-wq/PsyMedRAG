@@ -15,6 +15,7 @@ This project implements a **Retrieval-Augmented Generation (RAG)** based **medic
   - **Bi-Encoder**: fast large-scale recall with high coverage.
   - **Cross-Encoder**: re-ranking for precision, significantly improving **Recall** and **Mean Reciprocal Rank (MRR)**.
 - Final results are fused across retrieval paths before being passed to the generation stage.
+- Hugging Face: https://huggingface.co/Elearon/deepseek-medical-lora
 
 ------
 
