@@ -1,5 +1,4 @@
 # PsyMedRAG
-# PsyMedRAG
 
 # 🧠 Medical QA System (RAG for Mental Health)
 
@@ -54,15 +53,15 @@ This design follows a **multi-agent paradigm**, ensuring robustness and modulari
 
 Clone this repo and install dependencies:
 
-```
+```bash
 git clone https://github.com/zpf-wq/PsyMedRAG.git
 ```
 
-````
+````bash
 cd PsyMedRAG
 ````
 
-````
+````bash
 pip install -r requirements.txt
 ````
 
@@ -70,7 +69,7 @@ Make sure you have access to the fine-tuned models (Bi-Encoder, Cross-Encoder, D
 
 **Start the retrieval & QA service**:
 
-```
+```bash
 python Agent/main.py
 ```
 
@@ -96,10 +95,6 @@ This will load the retrievers and the fine-tuned DeepSeek model.
 
 ------
 
-## 📚 Summary
-
-This project demonstrates how **RAG + multi-path retrieval + multi-LLM orchestration** can improve **accuracy, safety, and contextual relevance** in medical QA.
- By combining **retrieval optimization** with a **domain-specific fine-tuned LLM**, the system provides a practical blueprint for **intelligent medical assistants**, with a particular emphasis on **mental health**.
 ## 📚 Summary
 
 This project demonstrates how **RAG + multi-path retrieval + multi-LLM orchestration** can improve **accuracy, safety, and contextual relevance** in medical QA.
