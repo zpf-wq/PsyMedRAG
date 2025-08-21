@@ -1,5 +1,5 @@
 # PsyMedRAG
-🧠 Medical QA System (RAG for Mental Health)
+# 🧠 Medical QA System (RAG for Mental Health)
 
 This project implements a Retrieval-Augmented Generation (RAG) based medical question-answering system, with a special focus on mental health.
 It explores multi-path retrieval, encoder fine-tuning, and domain-adapted LLMs to deliver more accurate, context-aware, and trustworthy answers in medical QA.
