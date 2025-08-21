@@ -1,73 +1,71 @@
 # PsyMedRAG
 # 🧠 Medical QA System (RAG for Mental Health)
 
-This project implements a Retrieval-Augmented Generation (RAG) based medical question-answering system, with a special focus on mental health.
-It explores multi-path retrieval, encoder fine-tuning, and domain-adapted LLMs to deliver more accurate, context-aware, and trustworthy answers in medical QA.
----
-# ✨ Key Features
-1. 🔍 Multi-path Retrieval & Re-ranking
+This project implements a **Retrieval-Augmented Generation (RAG)** based **medical question-answering system**, with a special focus on **mental health**.
+ It explores **multi-path retrieval, encoder fine-tuning, and domain-adapted LLMs** to deliver more accurate, context-aware, and trustworthy answers in medical QA.
 
-Employs multi-path retrieval to combine different retrieval strategies and ensure comprehensive coverage.
+------
 
-Both Bi-Encoder and Cross-Encoder are fine-tuned:
+## ✨ Key Features
 
-Bi-Encoder: fast large-scale recall with high coverage.
+### 1. 🔍 Multi-path Retrieval & Re-ranking
 
-Cross-Encoder: re-ranking for precision, significantly improving Recall and Mean Reciprocal Rank (MRR).
+- Employs **multi-path retrieval** to combine different retrieval strategies and ensure comprehensive coverage.
+- Both **Bi-Encoder** and **Cross-Encoder** are fine-tuned:
+  - **Bi-Encoder**: fast large-scale recall with high coverage.
+  - **Cross-Encoder**: re-ranking for precision, significantly improving **Recall** and **Mean Reciprocal Rank (MRR)**.
+- Final results are fused across retrieval paths before being passed to the generation stage.
 
-Final results are fused across retrieval paths before being passed to the generation stage.
----
-# 2. 🧑‍⚕️ Domain-specific Model for Mental Health
+------
 
-A domain-adapted DeepSeek-llm-7B-chat is fine-tuned on mental health data.
+### 2. 🧑‍⚕️ Domain-specific Model for Mental Health
 
-Ensures that generated answers are safer, more appropriate, and contextually relevant for mental health queries.
+- A domain-adapted **DeepSeek-llm-7B-chat** is fine-tuned on mental health data.
+- Ensures that generated answers are **safer, more appropriate, and contextually relevant** for mental health queries.
+- Covers knowledge related to **common disorders, clinical symptoms, diagnosis, and treatments**.
 
-Covers knowledge related to common disorders, clinical symptoms, diagnosis, and treatments.
----
-# 3. 🧠 Multi-LLM Orchestrated Pipeline
+------
 
-The system is orchestrated by multiple LLMs, each responsible for a specific stage of reasoning:
+### 3. 🧠 Multi-LLM Orchestrated Pipeline
 
-Routing LLM – Classifies incoming questions and decides whether retrieval is required.
+The system is orchestrated by **multiple LLMs**, each responsible for a specific stage of reasoning:
 
-Retrieval LLM – Manages query construction, document recall, and re-ranking using Bi-Encoder + Cross-Encoder.
+1. **Routing LLM** – Classifies incoming questions and decides whether retrieval is required.
+2. **Retrieval LLM** – Manages query construction, document recall, and re-ranking using Bi-Encoder + Cross-Encoder.
+3. **History-Aware LLM** – Maintains context consistency across **multi-turn dialogue**.
+4. **Answer Generation LLM** – Synthesizes retrieved knowledge and conversation history to produce the final response (using fine-tuned **DeepSeek-llm-7B-chat**).
 
-History-Aware LLM – Maintains context consistency across multi-turn dialogue.
+This design follows a **multi-agent paradigm**, ensuring robustness and modularity.
 
-Answer Generation LLM – Synthesizes retrieved knowledge and conversation history to produce the final response (using fine-tuned DeepSeek-llm-7B-chat).
+------
 
-This design follows a multi-agent paradigm, ensuring robustness and modularity.
----
-# 4. 🔄 Multi-turn, Context-aware QA
+### 4. 🔄 Multi-turn, Context-aware QA
 
-Supports multi-turn dialogue, where the system leverages past interactions to refine current answers.
+- Supports **multi-turn dialogue**, where the system leverages past interactions to refine current answers.
+- Retrieval and generation are both dynamically conditioned on dialogue history.
+- Provides a more **realistic conversational experience** compared to single-turn QA.
 
-Retrieval and generation are both dynamically conditioned on dialogue history.
+------
 
-Provides a more realistic conversational experience compared to single-turn QA.
----
-# 📊 Applications
+## 📊 Applications
 
-Research: A testbed for exploring RAG pipelines in medical NLP, including retrieval optimization, encoder fine-tuning, and domain-specific LLM adaptation.
+- **Research**: A testbed for exploring **RAG pipelines** in medical NLP, including retrieval optimization, encoder fine-tuning, and domain-specific LLM adaptation.
+- **Education & Clinical Support**: Helps students, researchers, and clinicians access mental health knowledge through natural Q&A.
+- **Engineering**: Modular design allows easy replacement of LLMs, retrieval strategies, and backends to adapt to other medical or specialized domains.
 
-Education & Clinical Support: Helps students, researchers, and clinicians access mental health knowledge through natural Q&A.
+------
 
-Engineering: Modular design allows easy replacement of LLMs, retrieval strategies, and backends to adapt to other medical or specialized domains.
----
-# 🛠️ Tech Stack
+## 🛠️ Tech Stack
 
-Retrieval: Fine-tuned Bi-Encoder & Cross-Encoder
+- **Retrieval**: Fine-tuned Bi-Encoder & Cross-Encoder
+- **LLMs**: DeepSeek-llm-7B-chat (domain adaptation for mental health)
+- **Framework**: RAG (retrieval + generation)
+- **Architecture**: Multi-LLM orchestration (routing, retrieval, dialogue memory, generation)
+- **Dialogue**: Multi-turn, history-aware QA
 
-LLMs: DeepSeek-llm-7B-chat (domain adaptation for mental health)
+------
 
-Framework: RAG (retrieval + generation)
+## 📚 Summary
 
-Architecture: Multi-LLM orchestration (routing, retrieval, dialogue memory, generation)
-
-Dialogue: Multi-turn, history-aware QA
----
-# 📚 Summary
-
-This project demonstrates how RAG + multi-path retrieval + multi-LLM orchestration can improve accuracy, safety, and contextual relevance in medical QA.
-By combining retrieval optimization with a domain-specific fine-tuned LLM, the system provides a practical blueprint for intelligent medical assistants, with a particular emphasis on mental health.
+This project demonstrates how **RAG + multi-path retrieval + multi-LLM orchestration** can improve **accuracy, safety, and contextual relevance** in medical QA.
+ By combining **retrieval optimization** with a **domain-specific fine-tuned LLM**, the system provides a practical blueprint for **intelligent medical assistants**, with a particular emphasis on **mental health**.
